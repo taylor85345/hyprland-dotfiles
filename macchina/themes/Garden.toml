@@ -1,0 +1,54 @@
+spacing = 2
+padding = 0
+separator = "-"
+color = "Blue"
+separator_color = "White"
+
+[bar]
+glyph = "●"
+symbol_open = '('
+symbol_close = ')'
+visible = true
+
+[box]
+title = " Garden "
+border ="rounded"
+color = "Green"
+visible = true
+
+[box.inner_margin]
+x = 2
+y = 1
+
+[palette]
+type = "Light"
+glyph = "███"
+visible = true
+
+[custom_ascii]
+path = "~/.config/macchina/leaf.ascii"
+color = "Green"
+
+[randomize]
+key_color = false
+separator_color = false
+
+[keys]
+host = "Host"
+kernel = "Kernel"
+battery = "Battery"
+os = "OS"
+de = "DE"
+wm = "WM"
+distro = "Distro"
+terminal = "Terminal"
+shell = "Shell"
+packages = "Packages"
+uptime = "Uptime"
+memory = "Memory"
+machine = "Machine"
+local_ip = "IP"
+backlight = "Brightness"
+resolution = "Resolution"
+cpu_load = "CPU Load"
+cpu = "CPU"

@@ -1,0 +1,28 @@
+#!/bin/bash
+workspaces() {
+
+#define icons for workspaces 1-9
+ic=(0     輸    )
+
+unset -v \
+  o1 o2 o3 o4 o5 o6 o7 o8 o9 \
+  f1 f2 f3 f4 f5 f6 f7 f8 f9
+
+# check if Occupied
+for num in $(hyprctl workspaces | grep ID | sed 's/()/(1)/g' | sort | awk 'NR>1{print $1}' RS='(' FS=')'); do 
+  export o"$num"="$num"
+done
+                                       
+ 
+#check if Focused
+for num in $(hyprctl monitors | grep active | sed 's/()/(1)/g' | sort | awk 'NR>1{print $1}' RS='(' FS=')'); do 
+  export f"$num"="$num"
+done
+
+echo 	"(box	:class \"works\"	:orientation \"h\" :spacing 5 :space-evenly \"true\" (button :onclick \"hyprctl dispatch workspace 1\" :onrightclick \"hyprctl dispatch workspace 1 && /home/taylor/.config/hypr/default_app\"	:class	\"0$o1$f1\"	\"${ic[1]}\") (button :onclick \"hyprctl dispatch workspace 2\" :onrightclick \"hyprctl dispatch workspace 2 && /home/taylor/.config/hypr/default_app\"	:class \"0$o2$f2\"	 \"${ic[2]}\") (button :onclick \"hyprctl dispatch workspace 3\" :onrightclick \"hyprctl dispatch workspace 3 && /home/taylor/.config/hypr/default_app\"	:class \"0$o3$f3\" \"${ic[3]}\") (button :onclick \"hyprctl dispatch workspace 4\" :onrightclick \"hyprctl dispatch workspace 4 && /home/taylor/.config/hypr/default_app\"	:class \"0$o4$f4\"	\"${ic[4]}\") (button :onclick \"hyprctl dispatch workspace 5\" :onrightclick \"hyprctl dispatch workspace 5 && /home/taylor/.config/hypr/default_app\"	:class \"0$o5$f5\" \"${ic[5]}\")  (button :onclick \"hyprctl dispatch workspace 6\" :onrightclick \"hyprctl dispatch workspace 6 && /home/taylor/.config/hypr/default_app\"	:class \"0$o6$f6\" \"${ic[6]}\")  (button :onclick \"hyprctl dispatch workspace 7\" :onrightclick \"hyprctl dispatch workspace 7 && /home/taylor/.config/hypr/default_app\"	:class \"0$o7$f7\" \"${ic[7]}\")  (button :onclick \"hyprctl dispatch workspace 8\" :onrightclick \"hyprctl dispatch workspace 8 && /home/taylor/.config/hypr/default_app\"	:class \"0$o8$f8\" \"${ic[8]}\")  (button :onclick \"hyprctl dispatch workspace 9\" :onrightclick \"hyprctl dispatch workspace 9 && /home/taylor/.config/hypr/default_app\"	:class \"0$o9$f9\" \"${ic[9]}\"))"
+
+}
+workspaces
+tail -f /tmp/hypr/hyprland.log | grep --line-buffered "Changed to workspace" | while read -r; do 
+workspaces
+done

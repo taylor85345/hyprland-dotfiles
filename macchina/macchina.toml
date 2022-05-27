@@ -1,0 +1,7 @@
+interface = "wlan0"
+long_uptime = false
+long_shell = true
+long_kernel = false
+current_shell = true
+theme = "Garden"
+

@@ -1,0 +1,17 @@
+sort=-priority
+
+on-button-left=invoke-default-action
+on-button-right=dismiss-all
+on-button-middle=dismiss
+
+font=Inter Nerd Font 12
+background-color=#00000066
+border-color=#53E2AEFF
+border-radius=8
+
+group-by=category
+
+margin=66,16,0
+
+[mode=do-not-disturb]
+invisible=1
