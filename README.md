@@ -3,7 +3,6 @@
 ## Packages
 
 ```
-DE          : Garuda
 WM          : Hyprland
 terminal    : foot
 bar         : eww
