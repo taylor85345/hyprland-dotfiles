@@ -90,6 +90,8 @@ https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-
     
     `SUPER + CTRL + (LEFT,RIGHT or H,L)` - Move to Previous/Next Workspace
     
+    `SUPER + D` - Open Application Launcher (fuzzel)
+    
     `SUPER + Q` - Kill current window
     
     `SUPER + SHIFT + Q` - Kill Hyprland
