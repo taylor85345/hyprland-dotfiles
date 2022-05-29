@@ -3,7 +3,7 @@
 ## Packages
 
 ```
-DE          : Garuda
+OS          : Garuda
 WM          : Hyprland
 terminal    : foot
 bar         : eww
@@ -32,6 +32,13 @@ https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-
 ## Installation
 
 1. Install all required dependencies
+ installing yay :
+ `sudo pacman -S base-devel git`
+ `git clone https://aur.archlinux.org/yay`
+ `cd yay`
+ `makepkg -si`
+
+`yay -S hyprland-git eww fuzzel rofi mako trayer mpvpaper macchina nerd-fonts-inter`
 
 2. Clone the repository
 
