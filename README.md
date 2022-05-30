@@ -32,22 +32,26 @@ https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-
 
 These instructions assume an Arch Linux-based distribution. Hyprland is not present in repositories for other Linux distribution as of this writing, and availability of other dependencies may vary. If a package is unavailable on your distribution, please see the links in the Dependencies section to the various repositories for each dependency, and follow the relevant instructions to install manually.
 
-1. Install all required dependencies 
- installing an AUR Helper:
- `sudo pacman -S base-devel git`
- `git clone https://aur.archlinux.org/yay`
- `cd yay`
- `makepkg -si`
+1. Install an AUR Helper (if necessary): 
+ 
+     ```bash
+     sudo pacman -S base-devel git
+     git clone https://aur.archlinux.org/yay
+     cd yay
+     makepkg -si
+     ```
 
-`yay -S hyprland-git eww fuzzel rofi mako trayer mpvpaper macchina nerd-fonts-inter`
+2. Install all required dependencies
 
-2. Clone the repository
+    `yay -S hyprland-git eww fuzzel rofi mako trayer mpvpaper macchina nerd-fonts-inter`
 
-  `git clone https://github.com/taylor85345/garden-hyprland-dotfiles.git`
+3. Clone the repository
 
-3. Copy dotfiles into your config directory (assumptions made).
+    `git clone https://github.com/taylor85345/garden-hyprland-dotfiles.git`
 
-  `cp -ri garden-hyprland-dotfiles/* $HOME/.config/`
+4. Copy dotfiles into your config directory (assumptions made).
+
+    `cp -ri garden-hyprland-dotfiles/* $HOME/.config/`
 
 ## Configuration
 
