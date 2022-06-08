@@ -3,7 +3,6 @@
 ## Packages
 
 ```
-DE          : Garuda
 WM          : Hyprland
 terminal    : foot
 bar         : eww
@@ -31,15 +30,28 @@ https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-
 
 ## Installation
 
-1. Install all required dependencies
+These instructions assume an Arch Linux-based distribution. Hyprland is not present in repositories for other Linux distribution as of this writing, and availability of other dependencies may vary. If a package is unavailable on your distribution, please see the links in the Dependencies section to the various repositories for each dependency, and follow the relevant instructions to install manually.
 
-2. Clone the repository
+1. Install an AUR Helper (if necessary): 
+ 
+     ```bash
+     sudo pacman -S base-devel git
+     git clone https://aur.archlinux.org/yay
+     cd yay
+     makepkg -si
+     ```
 
-  `git clone https://github.com/taylor85345/garden-hyprland-dotfiles.git`
+2. Install all required dependencies
 
-3. Copy dotfiles into your config directory (assumptions made).
+    `yay -S hyprland-git eww fuzzel rofi mako trayer mpvpaper macchina nerd-fonts-inter`
 
-  `cp -ri garden-hyprland-dotfiles/* $HOME/.config/`
+3. Clone the repository
+
+    `git clone https://github.com/taylor85345/garden-hyprland-dotfiles.git`
+
+4. Copy dotfiles into your config directory (assumptions made).
+
+    `cp -ri garden-hyprland-dotfiles/* $HOME/.config/`
 
 ## Configuration
 
