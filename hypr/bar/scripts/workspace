@@ -23,6 +23,6 @@ echo 	"(box	:class \"works\"	:orientation \"h\" :spacing 5 :space-evenly \"true\
 
 }
 workspaces
-tail -f /tmp/hypr/hyprland.log | grep --line-buffered "Changed to workspace" | while read -r; do 
+tail -f /tmp/hypr/$HYPRLAND_INSTANCE_SIGNATURE/hyprland.log | grep --line-buffered "Changed to workspace" | while read -r; do 
 workspaces
 done
