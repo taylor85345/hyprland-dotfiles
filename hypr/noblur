@@ -1,0 +1,23 @@
+#! /bin/bash
+
+blur=1
+
+noblur=(
+  "ffxiv_dx11.exe"
+  gzdoom
+  supertuxkart
+  "GenshinImpact.exe"
+)
+
+socat - UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock | \
+grep --line-buffered 'activewindow>>[A-z1-9]' | \
+awk -F '[>,]' '{print $3; fflush()}' | \
+while read -r app; do
+  if [[ " ${noblur[*]} " =~ $app ]]; then
+    test $blur -eq 1 && hyprctl --batch "keyword decoration:blur 0 ; keyword animations:enabled 0" > /dev/null
+    export blur=0
+  else
+    test $blur -eq 0 && hyprctl --batch "keyword decoration:blur 1 ; keyword animations:enabled 1" > /dev/null
+    export blur=1
+  fi
+done
