@@ -27,6 +27,7 @@ https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-
 - [trayer](https://github.com/sargon/trayer-srg) - Systray Utility
 - [mpvpaper](https://github.com/GhostNaN/mpvpaper) - Video Backgrounds
 - [macchina](https://github.com/Macchina-CLI/macchina) - (Optional) Fetch Script
+- [socat](http://www.dest-unreach.org/socat/) - Socket utility for eww workspace module
 
 ## Installation
 
@@ -43,7 +44,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
 
 2. Install all required dependencies
 
-    `yay -S hyprland-git eww fuzzel rofi dunst trayer mpvpaper macchina nerd-fonts-inter`
+    `yay -S hyprland-git eww fuzzel rofi dunst trayer mpvpaper macchina nerd-fonts-inter socat`
 
 3. Clone the repository
 
