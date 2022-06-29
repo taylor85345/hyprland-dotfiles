@@ -3,8 +3,6 @@
 #define icons for workspaces 1-9
 ic=(0     輸    )
 
-#set initial values for focused and occupied workspaces
-startworkspace () {
 #initial check for occupied workspaces
 for num in $(hyprctl workspaces | grep ID | sed 's/()/(1)/g' | awk 'NR>1{print $1}' RS='(' FS=')'); do 
   export o"$num"="$num"
@@ -15,7 +13,6 @@ for num in $(hyprctl monitors | grep active | sed 's/()/(1)/g' | awk 'NR>1{print
   export f"$num"="$num"
   export fnum=f"$num"
 done
-}
 
 workspaces() {
 if [[ ${1:0:9} == "workspace" ]]; then #set focused workspace
@@ -27,10 +24,11 @@ if [[ ${1:0:9} == "workspace" ]]; then #set focused workspace
 elif [[ ${1:0:15} == "createworkspace" ]]; then #set Occupied workspace
   num=${1:17}
   export o"$num"="$num"
+  export f"$num"="$num"
 
 elif [[ ${1:0:16} == "destroyworkspace" ]]; then #unset unoccupied workspace
   num=${1:18}
-  unset -v o"$num"
+  unset -v o"$num" f"$num"
 fi
 
 #output eww widget
@@ -49,7 +47,6 @@ echo 	"(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xar
         )"
 }
 
-startworkspace
 socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r event; do 
 workspaces "$event"
 done
