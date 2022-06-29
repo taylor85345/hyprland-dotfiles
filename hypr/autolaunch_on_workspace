@@ -1,0 +1,11 @@
+#! /bin/sh
+
+hyprctl keyword windowrule "workspace special silent,kitty" && kitty &
+hyprctl keyword windowrule "workspace 7 silent,discord" && discord &
+hyprctl keyword windowrule "workspace 8 silent,Caprine" && caprine &
+
+sleep 10 && hyprctl reload
+
+hyprctl keyword windowrule "workspace unset,kitty" 
+hyprctl keyword windowrule "workspace unset,discord" 
+hyprctl keyword windowrule "workspace unset,Caprine" 
