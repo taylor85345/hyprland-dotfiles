@@ -23,9 +23,11 @@ if [[ ${1:0:9} == "workspace" ]]; then #set focused workspace
   num=${1:11}
   export f"$num"="$num"
   export fnum=f"$num"
+
 elif [[ ${1:0:15} == "createworkspace" ]]; then #set Occupied workspace
   num=${1:17}
   export o"$num"="$num"
+
 elif [[ ${1:0:16} == "destroyworkspace" ]]; then #unset unoccupied workspace
   num=${1:18}
   unset -v o"$num"
