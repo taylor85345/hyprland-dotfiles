@@ -1,5 +1,5 @@
 configuration {
-	font: "Inter Nerd Font 12";
+font: "Inter Nerd Font 12";
 	show-icons: true;
 	drun-display-format: "{name}";
   drun-match-fields: "name,generic,categories,keywords";
@@ -14,10 +14,12 @@ configuration {
 * {
 	transparent: #00000000;
 	foreground: #F2F2F2EE;
+  foreground-selected: #F2F2F2EE;
+  foreground-active: #F2F2F2EE;
 	background-selected: #F2F2F245;
 	background-active: #F2F2F230;
 	background-white: #F2F2F211;
-	background-black: #00000066;
+	background-black: #000000CC;
 	urgent: #E91E6366;
 	urgent-selected: #E91E6377;
 }
@@ -26,7 +28,7 @@ window {
 	transparency: "real";
 	background-color: @transparent;
 	text-color: @foreground;
-	location: northwest;
+	location: north;
 	anchor: northwest;
 	fullscreen: true;
 }
