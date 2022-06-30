@@ -1,15 +1,15 @@
 #! /bin/bash
+stills="$HOME/Pictures/GoW/"
+videos="$HOME/Pictures/GoW/Clips/"
 
 #Switches wallpaper based on charging status
 wptoggle () {
     if [[ "${1:21}" == "discharging" && "$1" != "$laststate" ]]; then
-      hyprctl dispatch exec "swaybg -m fill -i ~/Pictures/GoW/GOW1.png" && eww -c ~/.config/hypr/bar/ reload & sleep 5 && pkill mpvpaper
-      eww -c ~/.config/hypr/bar/ reload
+      hyprctl dispatch exec "swaybg -m fill -i $(find $stills -maxdepth 1 -type f | shuf -n 1)" && eww -c ~/.config/hypr/bar/ reload & sleep 5 && pkill mpvpaper
     elif [[ "${1:21}" == "fully-charged" && "$1" != "$laststate" ]]; then
       :
     elif [[ "$1" != "$laststate" ]]; then
-      hyprctl dispatch exec "mpvpaper -spf -o '--loop=120 --reset-on-next-file=loop --loop-playlist --shuffle --panscan=1' eDP-1 $HOME/Pictures/GoW/Clips/" && eww -c ~/.config/hypr/bar/ reload & sleep 5 && pkill swaybg
-      
+      hyprctl dispatch exec "mpvpaper -spf -o '--loop=120 --reset-on-next-file=loop --loop-playlist --shuffle --panscan=1' eDP-1 $videos" && eww -c ~/.config/hypr/bar/ reload & sleep 5 && pkill swaybg
     fi
     
     export laststate=$1
