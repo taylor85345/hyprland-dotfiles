@@ -1,0 +1,12 @@
+#! /bin/bash
+
+activemonitor=$(hyprctl monitors | grep -B 6 "active: yes" | awk 'NR==1 {print $2}')
+passivemonitor=$(hyprctl monitors | grep  -B 2 "($1)" | awk 'NR==1 {print $2}')
+activews=$(hyprctl monitors | grep -A 2 "$activemonitor" | awk 'NR==3 {print $1}' RS='(' FS=')')
+passivews=$(hyprctl monitors | grep -A 2 "$passivemonitor" | awk 'NR==3 {print $1}' RS='(' FS=')')
+
+[[ $1 -eq $passivews ]] && [[ $activemonitor != "$passivemonitor" ]] && (hyprctl dispatch moveworkspacetomonitor "$activews $passivemonitor")
+hyprctl dispatch moveworkspacetomonitor "$1 $activemonitor" && hyprctl dispatch workspace "$1"
+[[ $1 -eq $passivews ]] && [[ $activemonitor != "$passivemonitor" ]] && (hyprctl dispatch focusmonitor $passivemonitor && hyprctl dispatch workspace $activews && hyprctl dispatch focusmonitor $activemonitor)
+
+exit 0
