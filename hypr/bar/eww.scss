@@ -9,7 +9,7 @@ Created by saimoom **/
 /** General **/
 .bar_class {
     background-color: rgba(00, 00, 00, 0.55);
-    border-radius: 12px;
+    border-radius: 16px;
     border-style: solid;
     border-width: 2;
     border-color: #53E2AE;
@@ -69,6 +69,11 @@ tooltip label {
     background-color: #38384d;
   border-radius: 10px;
 }
+.bright_icon {
+    font-size: 22;
+    color: #F1FA8C;
+  margin: 0px 10px 0px 0px;
+}
 .brightbar trough highlight {
   background-image: linear-gradient(to right, #F1FA8C 30%, #f2cdcd 50%, #F1FA8C 100% *50);
   border-radius: 10px;
@@ -80,7 +85,7 @@ tooltip label {
 .volume_icon {
     font-size: 22;
     color: #92B6F4;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 10px 0px 0px;
 }
 
 
@@ -113,11 +118,6 @@ tooltip label {
 .iconbat, .iconmem {
     font-size: 15;
     margin: 10px;
-}
-.bright_icon {
-    font-size: 22;
-    color: #F1FA8C;
-  margin: 0px 10px 0px 10px;
 }
 
 
@@ -214,12 +214,13 @@ color: #606060;
 // Calendar
 .cal {
   background-color: rgba(00, 00, 00, 0.6);
+  border-radius: 16px;
   font-family: Inter Nerd Font;
   font-size: 18px;
   font-weight: normal;
 
 .cal-in {
-    padding: 0px 10px 0px 10px;
+    padding: 10px 20px 10px 20px;
     color: #bfc9db;
 
 .cal {
@@ -260,10 +261,6 @@ color: #bfc9db;
 
 
 
-
-
-
-
 .sys_sep {
     color: #38384d;
     font-size: 18;
@@ -285,6 +282,7 @@ color: #bfc9db;
 }
 .sys_win {
     background-color: rgba(00, 00, 00, 0.6);
+    border-radius: 16px;
 }
 .sys_bat {
   color: #A1EFD3;
@@ -308,12 +306,8 @@ color: #bfc9db;
   }
 .sys_mem_box {
 	border-radius: 16px;
-    margin: 10px 10px 15px 20px;
+    margin: 15px 10px 15px 20px;
   }
-
-
-
-
 
 
 
@@ -427,7 +421,7 @@ color: #bfc9db;
 	background-position: center;
 	min-height: 70px;
 	min-width: 75px;
-	margin: 5px 20px 20px 20px;
+	margin: 20px 20px 20px 20px;
 	border-radius: 12px;
 }
 
