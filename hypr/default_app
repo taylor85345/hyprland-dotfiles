@@ -1,17 +1,18 @@
 #!/bin/bash
+GDK_BACKEND=wayland
 
 TERM=kitty          #Tag 1
 BROWSER=brave       #Tag 2
 DOC=libreoffice     #Tag 3
 FILE=dolphin        #Tag 4
 PLAYER=vlc          #Tag 5
-GAME=steam          #Tag 6
+GAME=steam-native   #Tag 6
 PHOTO=krita         #Tag 7
 SANDBOX="mailspring --no-sandbox"  #Tag 8
 DEV="neovide" #Tag 9
 
 #Lookup Focused tag
-TAG=$(hyprctl monitors | grep "active workspace" | awk 'NR>1{print $1}' RS='(' FS=')')
+TAG=$(hyprctl monitors | grep -B 4 "active: yes" | awk 'NR==2 {print $1}' RS='(' FS=')')
 
 #Executes application based on number of focused tag
 case "$TAG" in 
