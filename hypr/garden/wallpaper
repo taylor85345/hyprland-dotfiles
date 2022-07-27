@@ -1,0 +1,27 @@
+#! /bin/bash
+stills="$HOME/Pictures/GoW/"
+videos="$HOME/Pictures/GoW/Clips/"
+
+#Switches wallpaper based on charging status
+wptoggle () {
+    monitors=($(hyprctl monitors | awk '{if ($1 ~ "Monitor") print $2}'))
+    if [[ "$1" == "Discharging" && "$1" != "$laststate" ]]; then
+      pgrep swaybg || (for monitor in "${monitors[@]}"; do hyprctl dispatch exec "swaybg -m fill -o '$monitor' -i '$(randstill)'"; done & sleep 5 && pkill mpvpaper)
+      #pgrep hyprpaper || (hyprctl dispatch exec "hyprpaper" & sleep 10 && pkill mpvpaper)
+    elif [[ "$1" != "$laststate" ]]; then
+      pgrep mpvpaper || (for monitor in "${monitors[@]}"; do hyprctl dispatch exec "mpvpaper -spf -o '--loop=120 --reset-on-next-file=loop --loop-playlist --shuffle --panscan=1' $monitor $videos"; done & sleep 5 && pkill swaybg)
+    fi
+    
+    export laststate=$1
+  }
+
+randstill() {
+    find "$stills" -maxdepth 1 -type f | shuf -n 1
+}
+
+wptoggle $(cat /sys/class/power_supply/BAT0/status)
+sleep 5
+while :; do
+    sleep 3
+    wptoggle $(cat /sys/class/power_supply/BAT0/status)
+done
