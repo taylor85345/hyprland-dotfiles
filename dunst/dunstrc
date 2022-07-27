@@ -32,7 +32,7 @@
     #geometry = "300x5-100+100"
     width = 300
     height = 100
-    offset = +25x+25
+    offset = +5x+50
     origin = top-right
 
     # Turn on the progess bar
@@ -88,7 +88,7 @@
     frame_width = 2
 
     # Defines color of the frame around the notification window.
-    frame_color = "#53E2AEFF"
+    frame_color = "#F37F97"
 
     # Define a color for the separator.
     # possible values are:
