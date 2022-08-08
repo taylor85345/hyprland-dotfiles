@@ -7,12 +7,6 @@
 (defpoll volume_percent :interval "3s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll mic_percent :interval "3s" "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll brightness_percent :interval "5s" "light")
-(defpoll battery :interval "15s" "scripts/battery --bat")
-(defpoll battery_status :interval "1m" "scripts/battery --bat-st")
-(defpoll memory :interval "15s" "scripts/memory")
-(defpoll memory_used_mb :interval "2m" "scripts/mem-ad used")
-(defpoll memory_total_mb :interval "2m" "scripts/mem-ad total")
-(defpoll memory_free_mb :interval "2m" "scripts/mem-ad free")
 (defpoll COL_WLAN :interval "1m" "scripts/wifi --COL")
 (defpoll ESSID_WLAN :interval "1m" "scripts/wifi --ESSID")
 (defpoll WLAN_ICON :interval "1m" "scripts/wifi --ICON")
@@ -28,7 +22,6 @@
 (defvar music_reveal false)
 (defvar wifi_rev false)
 (defvar time_rev false)
-(defvar eww "/usr/bin/eww -c $HOME/.config/hypr/neon/bar")
 
 
 ;; widgets
@@ -51,8 +44,8 @@
 
 (defwidget music [] 
   (eventbox
-    :onhover "${eww} update music_reveal=true"
-	:onhoverlost "${eww} update music_reveal=false"
+    :onhover "${EWW_CMD} update music_reveal=true"
+	:onhoverlost "${EWW_CMD} update music_reveal=false"
 	(box 
 	    :class "module-2"
 	    :orientation "h"
@@ -91,8 +84,8 @@
 
 (defwidget bright []
   (eventbox
-    :onhover "${eww} update br_reveal=true" 
-    :onhoverlost "${eww} update br_reveal=false"
+    :onhover "${EWW_CMD} update br_reveal=true" 
+    :onhoverlost "${EWW_CMD} update br_reveal=false"
     (box 
         :class "module" 
         :space-evenly "false" 
@@ -116,8 +109,8 @@
 
 (defwidget volume []
   (eventbox 
-    :onhover "${eww} update vol_reveal=true"
-	:onhoverlost "${eww} update vol_reveal=false"
+    :onhover "${EWW_CMD} update vol_reveal=true"
+	:onhoverlost "${EWW_CMD} update vol_reveal=false"
     (box
         :class "module-2"
         :space-evenly "false"
@@ -142,8 +135,8 @@
 
 (defwidget wifi [] 
   (eventbox 
-    :onhover "${eww} update wifi_rev=true"
-	:onhoverlost "${eww} update wifi_rev=false"
+    :onhover "${EWW_CMD} update wifi_rev=true"
+	:onhoverlost "${EWW_CMD} update wifi_rev=false"
 	(box
 	    :vexpand "false"
 	    :hexpand "false"
@@ -169,14 +162,14 @@
 		    :vexpand "false"
 		    :hexpand "false" 
         (circular-progress
-            :value battery
+            :value {EWW_BATTERY["BAT0"].capacity}
             :class "batbar"
             :thickness 4
             (button 
                 :onclick "scripts/pop system"
                 :class "iconbat"
                 :limit-width 10
-                :tooltip "battery on ${battery}%"
+                :tooltip "battery on ${EWW_BATTERY["BAT0"].capacity}%"
                 :show_truncated false
                 :wrap false
                 " "))))
@@ -187,22 +180,22 @@
         :vexpand "false" 
         :hexpand "false" 
         (circular-progress 
-            :value memory
+            :value {EWW_RAM.used_mem_perc}
             :class "membar"
             :thickness 4
             (button 
                 :onclick "scripts/pop system"
                 :class "iconmem"
                 :limit-width 10
-                :tooltip "using ${memory}% ram"
+                :tooltip "using ${EWW_RAM.used_mem_perc}% ram"
                 :show_truncated false
                 :wrap false
                 " "))))
 
 (defwidget clock_module []
   (eventbox
-      :onhover "${eww} update time_rev=true"
-  	:onhoverlost "${eww} update time_rev=false"
+      :onhover "${EWW_CMD} update time_rev=true"
+  	:onhoverlost "${EWW_CMD} update time_rev=false"
       (box
           :class "module"
           :space-evenly "false"
@@ -482,7 +475,7 @@
         :orientation "h"
         :space-evenly "false"
         (circular-progress
-            :value battery
+            :value {EWW_BATTERY["BAT0"].capacity}
             :class "sys_bat"
             :thickness 9
             (label :text ""
@@ -503,13 +496,13 @@
                 :limit-width 9
                 :show_truncated false
                 :wrap false)
-            (label :text "${battery}%"
+            (label :text "${EWW_BATTERY["BAT0"].capacity}%"
                 :halign "start"
                 :class "sys_text_bat_sub"
                 :limit-width 22
                 :show_truncated false
                 :wrap false)
-            (label :text "${battery_status}"
+            (label :text "${EWW_BATTERY["BAT0"].status}"
                 :halign "start"
                 :class "sys_text_bat_sub"
                 :limit-width 22
@@ -525,7 +518,7 @@
         :space-evenly "false"
         :halign "start"
         (circular-progress
-            :value memory
+            :value {EWW_RAM.used_mem_perc}
             :class "sys_mem"
             :thickness 9
             (label
@@ -549,13 +542,13 @@
                 :show_truncated false
                 :wrap false)
             (label
-                :text "${memory_used_mb} | ${memory_total_mb}mb "
+                :text "${round((EWW_RAM.available_mem / 1024), 0)} | ${round((EWW_RAM.total_mem / 1024), 0)}mb "
                 :halign "start"
                 :class "sys_text_mem_sub"
                 :limit-width 22
                 :show_truncated false
                 :wrap false)
-            (label :text "${memory_free_mb}mb free"
+            (label :text "${round((EWW_RAM.used_mem / 1024), 0)}mb free"
                 :halign "start"
                 :class "sys_text_mem_sub"
                 :limit-width 22

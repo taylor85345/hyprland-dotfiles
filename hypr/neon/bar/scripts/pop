@@ -81,12 +81,9 @@ fi
 }
 
 
-if [ "$1" = "calendar" ]; then
-calendar
-elif [ "$1" = "system" ]; then
-system
-elif [ "$1" = "music" ]; then
-music
-elif [ "$1" = "audio" ]; then
-audio
-fi
+case $1 in
+  calendar) calendar;;
+  system) system;;
+  music) music;;
+  audio) audio;;
+esac
