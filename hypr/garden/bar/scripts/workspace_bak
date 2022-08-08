@@ -23,7 +23,7 @@ if [[ ${1:0:9} == "workspace" ]]; then #set focused workspace
 
 elif [[ ${1:0:9} == "activemon" ]]; then #set focused workspace
   unset -v "$fnum"
-  num=$(sed 's/.*,//g' <<<$1)
+  num=${1//.*,//}
   export f"$num"="$num"
   export fnum=f"$num"
 
@@ -52,8 +52,6 @@ echo 	"(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xar
           )\
         )"
 }
-
-workspaces
 
 socat -u UNIX-CONNECT:/tmp/hypr/"$HYPRLAND_INSTANCE_SIGNATURE"/.socket2.sock - | while read -r event; do 
 workspaces "$event"

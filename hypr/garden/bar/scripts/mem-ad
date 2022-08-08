@@ -6,10 +6,8 @@ used="$(free -m | grep Mem: | awk '{ print $3 }')"
 
 free=$(expr $total - $used)
 
-if [ "$1" = "total" ]; then
-    echo $total
-elif [ "$1" = "used" ]; then
-    echo $used
-elif [ "$1" = "free" ]; then
-    echo $free
-fi
+case $1 in
+	total) echo $total;;
+	used) echo $used;;
+	free) echo $free;;
+esac

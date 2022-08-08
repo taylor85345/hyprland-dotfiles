@@ -15,12 +15,9 @@ else
 fi
 
 
-
-if [[ "$1" == "--COL" ]]; then
-    echo $col	
-elif [[ "$1" == "--ESSID" ]]; then
-	echo $text
-elif [[ "$1" == "--ICON" ]]; then
-	echo $icon
-fi
+case $1 in
+	--COL) echo $col;;
+	--ESSID) echo $text;;
+	--ICON) echo $icon;;
+esac
 
