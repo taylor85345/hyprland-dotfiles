@@ -16,6 +16,7 @@
 (defpoll song_status :interval "2s"  "scripts/music_info --status")
 (defpoll cover_art :interval "2s"  "scripts/music_info --cover")
 (deflisten workspace "scripts/workspace")
+(deflisten appname "scripts/rust-scripts appname --scale 1")
 
 (defvar vol_reveal false)
 (defvar br_reveal false)
@@ -41,6 +42,10 @@
 (defwidget workspaces []
   (literal 
     :content workspace))
+
+(defwidget appnames []
+  (literal 
+    :content appname))
 
 (defwidget music [] 
   (eventbox
@@ -237,24 +242,25 @@
 ;;define widget groups
 (defwidget left []
 	(box 
-	    :orientation "h" 
+	  :orientation "h" 
 		:space-evenly false  
-        :halign "start"
+    :halign "start"
 		:class "left_modules"
     (launcher)
     (sep)
     (workspaces)))
 (defwidget center []
-	(box :orientation "h" 
+	(box 
+     :orientation "h" 
 		 :space-evenly false  
-         :halign "center"
+     :halign "center"
 		 :class "center_modules"
-    (music)))
+    (appnames)))
 (defwidget right []
 	(box
-	    :orientation "h" 
+	  :orientation "h" 
 		:space-evenly false  
-        :halign "end"
+    :halign "end"
 		:class "right_modules"
     (bright)
     (volume)
@@ -266,21 +272,11 @@
     (clock_module)
 ))
 
-;;Define bar
-(defwidget bar_1 []
-  (box :class "bar_class"
-       :orientation "h"
-       :width "1900px"
-  (left)
-  (center)
-  (right)
-    ))
-
 (defwidget bar_layout []
-  (box 
+  (centerbox 
     :class "bar_class"
     :orientation "h"
-    :width "1900px"
+    :space-evenly true
     (left)
     (center)
     (right)

@@ -270,10 +270,9 @@
 
 ;;Define bar
 (defwidget bar_layout []
-  (box 
+  (centerbox 
     :class "bar_class"
     :orientation "h"
-    :width "1900px"
     (left)
     (center)
     (right)

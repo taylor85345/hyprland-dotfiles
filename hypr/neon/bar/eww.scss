@@ -18,6 +18,11 @@ Created by saimoom **/
     border-radius: 10px 10px 0px 10px;
 }
 
+.center_modules {
+    margin: 0px 0px 0px 0px;
+    border-radius: 0px 0px 0px 0px;
+}
+
 /** tooltip!! **/
 tooltip.background {
     background-color: rgba(00, 00, 00, 0.0);
@@ -335,6 +340,17 @@ color: #bfc9db;
 	font-size : 20px;
 	font-weight : bold;
 	margin : 20px 0px 0px -15px;
+}
+
+.app-name {
+	color: #92B6F4;
+	font-size : 20px;
+	font-weight : bold;
+	margin : 10px 0px 0px 0px;
+}
+
+.app-icon {
+	margin : 5px 10px 0px 0px;
 }
 
 .music_artist {

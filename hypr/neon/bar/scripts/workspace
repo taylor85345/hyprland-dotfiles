@@ -40,7 +40,7 @@ fi
 module() {
 #output eww widget
 echo 	"(eventbox :onscroll \"echo {} | sed -e 's/up/-1/g' -e 's/down/+1/g' | xargs hyprctl dispatch workspace\" \
-          (box	:class \"works\"	:orientation \"h\" :spacing 5 :space-evenly \"false\" 	\
+          (box	:class \"works\"	:orientation \"h\" :spacing 5 :space-evenly \"true\" 	\
               (button :onclick \"hyprctl dispatch exec \'~/.config/hypr/workspace 1\'\" :onrightclick \"hyprctl dispatch workspace 1 && $HOME/.config/hypr/default_app\" :class \"0$o1$f1\" \"${ic[1]}\") \
               (button :onclick \"hyprctl dispatch exec \'~/.config/hypr/workspace 2\'\" :onrightclick \"hyprctl dispatch workspace 2 && $HOME/.config/hypr/default_app\"	:class \"0$o2$f2\" \"${ic[2]}\") \
               (button :onclick \"hyprctl dispatch exec \'~/.config/hypr/workspace 3\'\" :onrightclick \"hyprctl dispatch workspace 3 && $HOME/.config/hypr/default_app\"	:class \"0$o3$f3\" \"${ic[3]}\") \
