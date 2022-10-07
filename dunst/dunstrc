@@ -474,3 +474,6 @@
 #
 # vim: ft=cfg
 
+[eww-panel]
+    summary = "*"
+    script = ~/.config/dunst/scripts/notify-history.sh
