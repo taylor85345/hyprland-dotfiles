@@ -4,3 +4,6 @@
 [submodule "hypr/themes/neon"]
 	path = hypr/themes/neon
 	url = https://github.com/taylor85345/neon-hyprland-theme
+[submodule "hypr/themes/cyber"]
+	path = hypr/themes/cyber
+	url = https://github.com/taylor85345/cyber-hyprland-theme.git
