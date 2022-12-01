@@ -28,6 +28,7 @@ https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-
 - [mpvpaper](https://github.com/GhostNaN/mpvpaper) - Video Backgrounds
 - [macchina](https://github.com/Macchina-CLI/macchina) - (Optional) Fetch Script
 - [socat](http://www.dest-unreach.org/socat/) - Socket utility for eww workspace module
+- [geticons](https://git.sr.ht/~zethra/geticons) - Show icon of focused application in eww.
 
 ## Installation
 
