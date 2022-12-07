@@ -1,5 +1,5 @@
 #!/bin/bash
-TERM=kitty          #Tag 1
+TERM="kitty --single-instance"          #Tag 1
 BROWSER=brave       #Tag 2
 DOC=libreoffice     #Tag 3
 FILE=dolphin        #Tag 4
