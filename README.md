@@ -6,7 +6,7 @@
 WM          : Hyprland
 terminal    : foot
 bar         : eww
-launcher    : fuzzel
+launcher    : rofi
 file manager: Dolphin
 ```
 
@@ -22,13 +22,15 @@ https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-
 - [eww](https://github.com/elkowar/eww) - Bar and Widgets
 - [nerd-fonts-inter](https://github.com/rsms/inter) - Font for bar text and icons
 - [fuzzel](https://codeberg.org/dnkl/fuzzel) - Rofi-like launcher
-- [rofi](https://github.com/davatorium/rofi) - For search utility, since no Wayland utilities can handle custom Rofi modi (that I know of)
+- [rofi-lbonn-wayland](https://github.com/lbonn/rofi) - For search utility, since no Wayland utilities can handle custom Rofi modi (that I know of)
 - [dunst](https://github.com/dunst-project/dunst) - Notification Daemon
 - [trayer](https://github.com/sargon/trayer-srg) - Systray Utility
 - [mpvpaper](https://github.com/GhostNaN/mpvpaper) - Video Backgrounds
-- [macchina](https://github.com/Macchina-CLI/macchina) - (Optional) Fetch Script
 - [socat](http://www.dest-unreach.org/socat/) - Socket utility for eww workspace module
 - [geticons](https://git.sr.ht/~zethra/geticons) - Show icon of focused application in eww.
+- [macchina](https://github.com/Macchina-CLI/macchina) - (Optional) Fetch Script in Garden theme
+- [nitch](https://github.com/unxsh/nitch) - (Optional) Fetch Script in Neon/Cyber themes
+
 
 ## Installation
 
@@ -45,7 +47,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
 
 2. Install all required dependencies
 
-    `yay -S hyprland-git eww fuzzel rofi dunst trayer mpvpaper macchina nerd-fonts-inter socat`
+    `yay -S hyprland-git eww rofi-lbonn-wayland dunst trayer mpvpaper macchina nitch nerd-fonts-inter socat geticons`
 
 3. Clone the repository
 
