@@ -47,7 +47,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
 
 2. Install all required dependencies
 
-    `yay -S hyprland-git eww rofi-lbonn-wayland dunst trayer mpvpaper macchina nitch nerd-fonts-inter socat geticons`
+    `yay -S --needed hyprland-git eww-wayland rofi-lbonn-wayland dunst trayer mpvpaper macchina nitch nerd-fonts-inter socat geticons`
 
 3. Clone the repository
 
