@@ -51,7 +51,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
 
 3. Clone the repository
 
-    `git clone https://github.com/taylor85345/garden-hyprland-dotfiles.git`
+    `git clone --recursive https://github.com/taylor85345/hyprland-dotfiles.git`
 
 4. Copy dotfiles into your config directory (assumptions made).
 
