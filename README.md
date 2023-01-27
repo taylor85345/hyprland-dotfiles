@@ -15,6 +15,8 @@ file manager: Dolphin
 
 https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-ae05-3891adfe2daa.mp4
 
+See [hypr/themes](https://github.com/taylor85345/hyprland-dotfiles/tree/master/hypr/themes) for additional screenshots/clips of my various themes.
+
 
 ## Dependencies
 
@@ -24,12 +26,12 @@ https://user-images.githubusercontent.com/36456160/170814674-50c49874-5fd7-419c-
 - [fuzzel](https://codeberg.org/dnkl/fuzzel) - Rofi-like launcher
 - [rofi-lbonn-wayland](https://github.com/lbonn/rofi) - For search utility, since no Wayland utilities can handle custom Rofi modi (that I know of)
 - [dunst](https://github.com/dunst-project/dunst) - Notification Daemon
-- [trayer](https://github.com/sargon/trayer-srg) - Systray Utility
 - [mpvpaper](https://github.com/GhostNaN/mpvpaper) - Video Backgrounds
 - [socat](http://www.dest-unreach.org/socat/) - Socket utility for eww workspace module
 - [geticons](https://git.sr.ht/~zethra/geticons) - Show icon of focused application in eww.
 - [macchina](https://github.com/Macchina-CLI/macchina) - (Optional) Fetch Script in Garden theme
 - [nitch](https://github.com/unxsh/nitch) - (Optional) Fetch Script in Neon/Cyber themes
+- [trayer](https://github.com/sargon/trayer-srg) - Systray Utility (Optional, borked solution)
 
 
 ## Installation
