@@ -57,7 +57,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
 
 4. Copy dotfiles into your config directory (assumptions made).
 
-    `cp -ri garden-hyprland-dotfiles/* $HOME/.config/`
+    `cp -ri hyprland-dotfiles/* $HOME/.config/`
 
 ## Configuration
 
