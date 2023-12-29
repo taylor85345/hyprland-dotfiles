@@ -1,12 +1,12 @@
 #! /bin/sh
 
-hyprctl keyword windowrule "workspace 8 silent,caprine" && hyprctl dispatch exec "caprine"
-hyprctl keyword windowrule "workspace 7 silent,Electron" && hyprctl dispatch exec "discord"
+hyprctl keyword windowrulev2 "workspace 8 silent, class:^(Caprine)$" && hyprctl dispatch exec "caprine"
+hyprctl keyword windowrulev2 "workspace 7 silent, class:^(WebCord)$" && hyprctl dispatch exec "webcord"
 hyprctl keyword windowrule "workspace special silent,kitty" && hyprctl dispatch exec "kitty"
 
 sleep 15
 
-hyprctl keyword windowrule "unset,Electron"
-hyprctl keyword windowrule "unset,Caprine"
+hyprctl keyword windowrulev2 "unset, class:^(WebCord)$"
+hyprctl keyword windowrulev2 "unset, class:^(Caprine)$"
 hyprctl keyword windowrule "unset,kitty"
 #hyprctl reload
