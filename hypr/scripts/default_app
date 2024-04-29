@@ -1,12 +1,12 @@
 #!/bin/bash
 TERM="kitty --single-instance"          #Tag 1
-BROWSER=brave       #Tag 2
+BROWSER="brave --enable-features=UseOzonePlatform --ozone-platform=wayland"       #Tag 2
 DOC=libreoffice     #Tag 3
 FILE=dolphin        #Tag 4
 PLAYER=vlc          #Tag 5
 GAME="steam-native -pipewire"   #Tag 6
 PHOTO=krita         #Tag 7
-SANDBOX="mailspring --no-sandbox"  #Tag 8
+SANDBOX="mailspring --password-store=gnome-libsecret"  #Tag 8
 DEV=neovide         #Tag 9
 
 #Lookup Focused tag
@@ -21,6 +21,6 @@ case "$TAG" in
   5) $PLAYER &> /dev/null ;;
   6) $GAME &> /dev/null ;;
   7) $PHOTO &> /dev/null ;;
-  8) $SANDBOX &> /dev/null ;;
+  8) bash -c "$SANDBOX" &> /dev/null ;;
   9) $DEV &> /dev/null ;;
 esac
