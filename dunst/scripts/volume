@@ -1,29 +1,40 @@
 #!/bin/bash
 
-volume=$(pamixer --get-volume)
+getvol() {
+  export volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}')
+}
 
 down() {
-pamixer -d 5
-dunstify -a "VOLUME" "Decreasing to $volume%" -h int:value:"$volume" -i audio-volume-low-panel -r 2593 -u normal
-canberra-gtk-play -i audio-volume-change -d "changevolume"
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%-
+  getvol
+  dunstify -a "VOLUME" "Decreasing to $volume%" -h int:value:"$volume" -i audio-volume-low-panel -r 2593 -u normal
+  canberra-gtk-play -i audio-volume-change -d "changevolume"
 }
 
 up() {
-pamixer -i 5
-dunstify -a "VOLUME" "Increasing to $volume%" -h int:value:"$volume" -i audio-volume-high-panel -r 2593 -u normal
-canberra-gtk-play -i audio-volume-change -d "changevolume"
+  wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+  getvol
+  dunstify -a "VOLUME" "Increasing to $volume%" -h int:value:"$volume" -i audio-volume-high-panel -r 2593 -u normal
+  canberra-gtk-play -i audio-volume-change -d "changevolume"
 }
 
 mute() {
-DEFAULT_SINK=$(pactl info | grep "Default Sink" | cut -d " " -f3)
-pactl set-sink-mute "$DEFAULT_SINK" toggle
-dunstify -a "VOLUME" "MUTED" -h int:value:"$volume" -i audio-volume-muted-symbolic -r 2593 -u normal
-canberra-gtk-play -i audio-volume-change -d "changevolume"
+  wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+  getvol
+  dunstify -a "VOLUME" "MUTED" -h int:value:"$volume" -i audio-volume-muted-symbolic -r 2593 -u normal
+  canberra-gtk-play -i audio-volume-change -d "changevolume"
+}
+
+micmute() {
+  wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+  getvol
+  dunstify -a "VOLUME" "MICROPHONE MUTED" -h int:value:"$volume" -i audio-volume-muted-symbolic -r 2593 -u normal
+  canberra-gtk-play -i audio-volume-change -d "changevolume"
 }
 
 case "$1" in
-  up) up;;
-  down) down;;
-  mute) mute;;
+up) up ;;
+down) down ;;
+mute) mute ;;
+micmute) micmute ;;
 esac
-

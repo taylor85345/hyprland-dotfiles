@@ -12,7 +12,7 @@ visible = true
 
 [box]
 title = " Garden "
-border ="rounded"
+border = "rounded"
 color = "Green"
 visible = true
 
@@ -38,8 +38,8 @@ host = "Host"
 kernel = "Kernel"
 battery = "Battery"
 os = "OS"
-de = "DE"
-wm = "WM"
+de = "WM"
+WindowManager = "WM"
 distro = "Distro"
 terminal = "Terminal"
 shell = "Shell"

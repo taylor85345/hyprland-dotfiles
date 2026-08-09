@@ -1,0 +1,27 @@
+--Commands to be executed at launch
+
+hl.on("hyprland.start", function()
+	hl.exec_cmd("wl-clipboard-history -t")
+	hl.exec_cmd("gnome-keyring-daemon -sd --components=secrets,ssh")
+	hl.exec_cmd("dunst")
+	hl.exec_cmd("blueman-applet")
+	hl.exec_cmd("org.kde.kdeconnect.nonplasma.desktop")
+	hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+	hl.exec_cmd("systemctl --user start hyprland-session.target")
+	hl.exec_cmd("hyprpwcenter", { workspace = "special:volume silent" })
+	hl.exec_cmd("hyprpm reload -n")
+	hl.exec_cmd("ollama serve")
+	hl.exec_cmd(
+		'upower -m | while read line; do [[ "$line" =~ "line_power" ]] && hyprctl eval "on_battery_change()"; done'
+	)
+	--hl.exec_cmd("hypridle")
+	--hl.exec_cmd("lxqt-policykit-agent")
+	--hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme amarena")
+	--hl.exec_cmd("~/.config/hypr/scripts/autolaunch_on_workspace")
+	--hl.exec_cmd("openrgb --server")
+	--hl.exec_cmd("sway-audio-idle-inhibit")
+	--hl.exec_cmd("~/.config/hypr/scripts/xdph")
+	--hl.exec_cmd("[workspace 9 silent] webcord")
+	--hl.exec_cmd("[workspace 9 silent] discord")
+	--hl.exec_cmd("[workspace 8 silent] caprine")
+end)

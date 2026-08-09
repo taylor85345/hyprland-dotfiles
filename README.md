@@ -3,9 +3,9 @@
 ## Packages
 
 ```
-WM          : Hyprland
-terminal    : foot
-bar         : eww
+WM          : hyprland
+terminal    : kitty
+bar         : quickshell
 launcher    : rofi
 file manager: Dolphin
 ```
@@ -20,18 +20,14 @@ See [hypr/themes](https://github.com/taylor85345/hyprland-dotfiles/tree/master/h
 
 ## Dependencies
 
-- [hyprland-git](https://github.com/vaxerski/hyprland) - Wayland Compositor/WM
-- [eww](https://github.com/elkowar/eww) - Bar and Widgets
+- [hyprland](https://github.com/hyprwm/hyprland) - Wayland Compositor/WM
+- [quickshell](https://github.com/elkowar/eww) - Bar and Widgets
 - [nerd-fonts-inter](https://github.com/rsms/inter) - Font for bar text and icons
-- [fuzzel](https://codeberg.org/dnkl/fuzzel) - Rofi-like launcher
-- [rofi-lbonn-wayland](https://github.com/lbonn/rofi) - For search utility, since no Wayland utilities can handle custom Rofi modi (that I know of)
+- [rofi](https://github.com/davatorium/rofi) - Application launcher
 - [dunst](https://github.com/dunst-project/dunst) - Notification Daemon
 - [mpvpaper](https://github.com/GhostNaN/mpvpaper) - Video Backgrounds
 - [socat](http://www.dest-unreach.org/socat/) - Socket utility for eww workspace module
-- [geticons](https://git.sr.ht/~zethra/geticons) - Show icon of focused application in eww.
-- [macchina](https://github.com/Macchina-CLI/macchina) - (Optional) Fetch Script in Garden theme
 - [nitch](https://github.com/unxsh/nitch) - (Optional) Fetch Script in Neon/Cyber themes
-- [trayer](https://github.com/sargon/trayer-srg) - Systray Utility (Optional, borked solution)
 
 
 ## Installation
@@ -49,7 +45,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
 
 2. Install all required dependencies
 
-    `yay -S --needed hyprland-git eww-wayland rofi-lbonn-wayland dunst trayer mpvpaper macchina nitch nerd-fonts-inter socat geticons`
+    `yay -S --needed hyprland-git quickshell-git rofi dunst mpvpaper nitch nerd-fonts-inter socat`
 
 3. Clone the repository
 
@@ -92,7 +88,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
     
     `SUPER + RIGHTMOUSE` - Drag to resize windows
     
-    `SUPER + ENTER` - Open Terminal (foot)
+    `SUPER + ENTER` - Open Terminal (kitty)
     
     `SUPER + SHIFT + ENTER` - Open default application for focused workspace (see hypr/default_apps script)
     
@@ -108,7 +104,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
     
     `SUPER + CTRL + (LEFT,RIGHT or H,L)` - Move to Previous/Next Workspace
     
-    `SUPER + D` - Open Application Launcher (fuzzel)
+    `SUPER + D` - Open Application Launcher (rofi)
     
     `SUPER + Q` - Kill current window
     
@@ -118,11 +114,7 @@ These instructions assume an Arch Linux-based distribution. Hyprland is not pres
     
     `SUPER + SHIFT + R` - Force reload of hyprland.cfg
     
-    `SUPER + [ALT] + T` - Open or [Kill] Trayer
-    
     `SUPER + [ALT] + B` - Open or [Kill] Bar
-    
-    `SUPER + [ALT] + F12` - Enable or [Disable] Background Blur (Helps FPS in Games)
     
     `SUPER + SPACE` - Launch Rofi File Browser Module 
     

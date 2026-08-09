@@ -2,5 +2,10 @@
 Description=Hyprland compositor session
 Documentation=man:systemd.special
 BindsTo=graphical-session.target
-Wants=graphical-session-pre.target
-After=graphical-session-pre.target
+#Wants=graphical-session-pre.target
+#After=graphical-session-pre.target
+Wants=xdg-desktop-autostart.target
+After=xdg-desktop-autostart.target
+
+[Install]
+Alias=display-manager.service
